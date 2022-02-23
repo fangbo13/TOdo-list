@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoAPP.MainPage">
+
+    <Grid>
+        <!--//创建布局-->
+        <Grid.RowDefinitions>
+            <!--// 头像区和搜索、名称、邮箱-->
+            <RowDefinition Height="50"/>
+            <!--//五个功能“我的一天”，“重要的”，“日程”，“已分配任务”-->
+            <RowDefinition Height="220"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal">
+            <!--水平布局-->
+            <Image Source="images.jpg" Margin="5"/>
+            <!--导入头像-->
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <!--//垂直布局-->
+                <Label Text="Haibo_Fang" FontAttributes="Bold" FontSize="15" />
+                <!--加入名称-->
+                <Label Text="fangh13@coventry.ac.uk"  FontSize="14" />
+                <!--加入邮箱地址-->
+            </StackLayout>
+            <!--创建搜索按钮-->
+            <Button Text="&#xe638;"  Font="25" BackgroundColor="Transparent" TextColor="Red" HorizontalOptions="EndAndExpand" WidthRequest="50"  FontFamily="iconfont.ttf#" Margin="0,0,5,0"/>
+
+
+        </StackLayout>
+
+        <ListView Grid.Row="1" RowHeight="40">
+            <ListView.ItemTemplate>
+                <!--模板部分-->
+                <DataTemplate>
+                    <ViewCell>
+                        <!--创建主体显示部分-->
+                        <Grid VerticalOptions="Center">
+                            <!--垂直居中，创建两列-->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2">
+                                </ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout>
+                                <Label Text="" FontAttributes="Bold"/>
+                                <Label Text="My day" FontSize="22" Margin="5" VerticalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="0" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/>
+
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</ContentPage>
