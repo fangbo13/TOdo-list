@@ -26,7 +26,7 @@ namespace ToDoApp.Module
         }
     }
 
-    public class TaskInfo 
+    public class TaskInfo
     {
         public string Content { get; set; }
 

@@ -22,7 +22,7 @@
                 <!--//垂直布局-->
                 <Label Text="Haibo_Fang" FontAttributes="Bold" FontSize="15" />
                 <!--加入名称-->
-                <Label Text="fangh13@coventry.ac.uk"  FontSize="14" />
+                <Label Text="fangh13@uni.coventry.ac.uk"  FontSize="14" />
                 <!--加入邮箱地址-->
             </StackLayout>
             <!--创建搜索按钮-->
@@ -31,7 +31,7 @@
 
         </StackLayout>
 
-        <ListView Grid.Row="1" RowHeight="40">
+        <ListView Grid.Row="1" RowHeight="40" ItemsSource="{Binding MenuModels}" SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <!--模板部分-->
                 <DataTemplate>
@@ -40,14 +40,16 @@
                         <Grid VerticalOptions="Center">
                             <!--垂直居中，创建两列-->
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2">
-                                </ColumnDefinition>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <StackLayout>
-                                <Label Text="" FontAttributes="Bold"/>
-                                <Label Text="My day" FontSize="22" Margin="5" VerticalOptions="Center"/>
+                            
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding IconFont}" FontFamily="iconfont.ttf#" FontAttributes="Bold" TextColor="{Binding BackColor}" VerticalOptions="Center" FontSize="22" Margin="5"  /><!--绑定字体库，改变图标颜色，设置字体属性-->
+                                <Label Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="Center"/><!--绑定标题--> 
                             </StackLayout>
-                            <Label Text="0" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/>
+
+                            <Label Grid.Column="1" Text="{Binding Taskinfos.Count}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/><!--设置计数器到第一列 绑定taskinfo-->
 
                         </Grid>
 
