@@ -9,6 +9,7 @@ using Xamarin.Forms;
 
 namespace ToDoAPP
 {
+
     [DesignTimeVisible(false)]
 
     public partial class MainPage : ContentPage

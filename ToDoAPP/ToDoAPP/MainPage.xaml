@@ -31,7 +31,8 @@
 
         </StackLayout>
 
-        <ListView Grid.Row="1" RowHeight="40" ItemsSource="{Binding MenuModels}" SeparatorVisibility="None">
+
+            <ListView Grid.Row="1" RowHeight="40" ItemsSource="{Binding MenuModels}" SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <!--模板部分-->
                 <DataTemplate>
@@ -49,7 +50,37 @@
                                 <Label Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="Center"/><!--绑定标题--> 
                             </StackLayout>
 
-                            <Label Grid.Column="1" Text="{Binding Taskinfos.Count}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/><!--设置计数器到第一列 绑定taskinfo-->
+                            <Label Grid.Column="1" Text="{Binding TaskInfos.Count}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/><!--设置计数器到第一列 绑定taskinfo-->
+
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--编写活动清单-->
+        <ListView Grid.Row="2" RowHeight="40" ItemsSource="{Binding MenuSubModels}" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <!--模板部分-->
+                <DataTemplate>
+                    <ViewCell>
+                        <!--创建主体显示部分-->
+                        <Grid VerticalOptions="Center">
+                            <!--垂直居中，创建两列-->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="&#xe63b;" FontFamily="iconfont.ttf#" FontAttributes="Bold"  VerticalOptions="Center" FontSize="22" Margin="5"  />
+                                <!--绑定列表代码，改变图标颜色，设置字体属性-->
+                                <Label Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="Center"/>
+                                <!--绑定标题-->
+                            </StackLayout>
+
+                            <Label Grid.Column="1" Text="{Binding TaskInfos.Count}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/>
+                            <!--设置计数器到第一列 绑定taskinfo-->
 
                         </Grid>
 
