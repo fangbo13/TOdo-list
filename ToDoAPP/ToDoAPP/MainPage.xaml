@@ -1,16 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vc="clr-namespace:ToDoApp.Converter"
              x:Class="ToDoAPP.MainPage">
-
+    
+    
+    <ContentPage.Resources>
+        <vc:IValueDiaplayConverter x:Key="idc"/>
+    </ContentPage.Resources>
     <Grid>
         <!--//创建布局-->
         <Grid.RowDefinitions>
             <!--// 头像区和搜索、名称、邮箱-->
             <RowDefinition Height="50"/>
             <!--//五个功能“我的一天”，“重要的”，“日程”，“已分配任务”-->
-            <RowDefinition Height="220"/>
+            <RowDefinition Height="205"/><!--功能和清单之间的边距-->
             <RowDefinition/>
+            <!--新建清单间距-->
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
         <StackLayout Orientation="Horizontal">
@@ -26,7 +33,7 @@
                 <!--加入邮箱地址-->
             </StackLayout>
             <!--创建搜索按钮-->
-            <Button Text="&#xe638;"  Font="25" BackgroundColor="Transparent" TextColor="Red" HorizontalOptions="EndAndExpand" WidthRequest="50"  FontFamily="iconfont.ttf#" Margin="0,0,5,0"/>
+            <Button Text="&#xe638;"  Font="25" BackgroundColor="Transparent" TextColor="Red" HorizontalOptions="EndAndExpand" WidthRequest="50"  FontFamily="iconfont.ttf#" Margin="5,0,5,0"/>
 
 
         </StackLayout>
@@ -50,7 +57,7 @@
                                 <Label Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="Center"/><!--绑定标题--> 
                             </StackLayout>
 
-                            <Label Grid.Column="1" Text="{Binding TaskInfos.Count}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/><!--设置计数器到第一列 绑定taskinfo-->
+                            <Label Grid.Column="1" Text="{Binding TaskInfos.Count,Converter={StaticResource idc}}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/><!--设置计数器到第一列 绑定taskinfo,添加转换器-->
 
                         </Grid>
 
@@ -79,7 +86,7 @@
                                 <!--绑定标题-->
                             </StackLayout>
 
-                            <Label Grid.Column="1" Text="{Binding TaskInfos.Count}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/>
+                            <Label Grid.Column="1" Text="{Binding TaskInfos.Count,Converter={StaticResource idc}}" HorizontalOptions="EndAndExpand"  Margin="0,0,15,0" />
                             <!--设置计数器到第一列 绑定taskinfo-->
 
                         </Grid>
@@ -88,6 +95,19 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Grid Grid.Row="3"><!--放在第三行-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="60"/><!--添加宽度-->
+            </Grid.ColumnDefinitions>
+            
+            <!--添加列表按钮设置字体库和颜色-->
+            <Button Text="&#xe600;Creat New LIST                                    
+                " TextColor="#FF6347" FontFamily="iconfont.ttf#" BackgroundColor="Transparent" />
+            <!--添加文件夹图标按钮-->
+            <Button Text="&#xe615;" Grid.Column="1" FontFamily="iconfont.ttf#" HorizontalOptions="StartAndExpand" TextColor="#FF6347" BackgroundColor="Transparent" FontSize="24"/>
+        </Grid>
     </Grid>
 
 </ContentPage>

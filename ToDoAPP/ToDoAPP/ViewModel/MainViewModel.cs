@@ -11,6 +11,7 @@ namespace ToDoApp.ViewModel
     {
         public MainViewModel()
         {
+            //功能模块
             MenuModels = new ObservableCollection<MenuModel>();
             menuModels.Add(new MenuModel() { IconFont = "\xe635", Title = "My day", BackColor = "#218868", });
             menuModels.Add(new MenuModel() { IconFont = "\xe6b6", Title = "Important", BackColor = "#EE3B3B", });
@@ -18,10 +19,11 @@ namespace ToDoApp.ViewModel
             menuModels.Add(new MenuModel() { IconFont = "\xe614", Title = "Assigned Task", BackColor = "#EE3B3B", });
             menuModels.Add(new MenuModel() { IconFont = "\xe755", Title = "Task", BackColor = "#218868", });
 
+            //清单模块
             MenuSubModels = new ObservableCollection<MenuModel>();
-            MenuSubModels.Add(new MenuModel() { Title = "Planned", });
-            MenuSubModels.Add(new MenuModel() {  Title = "Assigned Task", });
-            MenuSubModels.Add(new MenuModel() {  Title = "Task",  });
+            MenuSubModels.Add(new MenuModel() { Title = "Shopping List", });
+            MenuSubModels.Add(new MenuModel() {  Title = "杂货清单", });
+            MenuSubModels.Add(new MenuModel() {  Title = "待办事项",  });
         }
         private ObservableCollection<MenuModel> menuModels;
         private ObservableCollection<MenuModel> menuSubModels;/*添加活动清单*/
