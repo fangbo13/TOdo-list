@@ -4,10 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoApp.Module;
 using ToDoApp.ViewModel;
-using ToDoAPP.View;
-using ToDoAPP.ViewModel;
 using Xamarin.Forms;
 
 namespace ToDoAPP
@@ -20,14 +17,7 @@ namespace ToDoAPP
         public MainPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this,false);
-            this.BindingContext = new MainViewModel();/*绑定*/
+            this.BindingContext =new MainViewModel();/*绑定到MainBViewmodel*/
         }
-
-        //private void ListView_ItemSelected(object sender,SelectedPositionChangedEventArgs e)
-        //{
-        //    ListView lv = sender as ListView;
-        //    lv.SelectedItem = null;/*背景颜色消失*/
-        //}
     }
 }

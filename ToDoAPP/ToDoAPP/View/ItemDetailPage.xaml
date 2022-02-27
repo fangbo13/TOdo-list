@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoAPP.View.ItemDetailPage">
-    
+
     <ContentPage.ToolbarItems>
+        <!--// 创建工具选项-->
         <ToolbarItem Text="Sort by"                             Order="Secondary" Priority="0"/>
         <ToolbarItem Text="Adding shortcuts to the home screen" Order="Secondary" Priority="0"/>
         <ToolbarItem Text="Change theme"                        Order="Secondary" Priority="0"/>
@@ -19,7 +20,7 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
+            <!--设置绑定任务信息，虚线消失，选择触发事件背景颜色-->
             <ListView RowHeight="40" HasUnevenRows="True" SeparatorVisibility="None" ItemsSource="{Binding TaskInfos}" >
                 <ListView.ItemTemplate>
                     <!--模板部分-->
@@ -32,7 +33,7 @@
                                     <ColumnDefinition Width="50"/> <!--//收藏按钮-->
                                     
                                 </Grid.ColumnDefinitions>
-                                <Button Text="&#xe80c;" FontFamily="iconfont.ttf#"/>
+                                <Button Text="&#xe80c;" FontFamily="iconfont.ttf#"/><!--设置图标-->
 
                                 <StackLayout Grid.Column="1">
                                     <Label Text="{Binding Content}"/>  <!--显示主要内容-->
