@@ -19,11 +19,5 @@ namespace ToDoAPP
             InitializeComponent();
             this.BindingContext =new MainViewModel();/*绑定*/
         }
-
-        //private void ListView_ItemSelected(object sender,SelectedPositionChangedEventArgs e)
-        //{
-        //    ListView lv = sender as ListView;
-        //    lv.SelectedItem = null;/*背景颜色消失*/
-        //}
     }
 }
