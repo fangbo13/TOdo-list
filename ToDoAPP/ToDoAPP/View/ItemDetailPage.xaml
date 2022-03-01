@@ -18,7 +18,7 @@
             </Grid.RowDefinitions>
 
             <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
-            <ListView  RowHeight="40" SeparatorVisibility="None" 
+            <ListView  Grid.RowSpan="2" RowHeight="40" SeparatorVisibility="None" 
                        HasUnevenRows="True" ItemsSource="{Binding TaskInfos}" >
                 <ListView.ItemTemplate>
                     <!--模板部分-->
@@ -31,20 +31,36 @@
                                     <ColumnDefinition Width="50"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Button  Text="&#xe80c;" FontFamily="iconfont.ttf#"/>
+                                <Button  Text="&#xe80c;" FontSize="22" FontFamily="iconfont.ttf#"/>
 
                                 <StackLayout Grid.Column="1">
-                                    <Label Text="{Binding Content}"/>
+                                    <Label Text="{Binding Content}" TextColor="Black"/>
                                     <Label Text="Tasks"/>
                                 </StackLayout>
 
-                                <Button Grid.Column="2" Text="&#xe625;" FontFamily="iconfont.ttf#"/>
+                                <Button Grid.Column="2" Text="&#xe625;" FontSize="22"  FontFamily="iconfont.ttf#"/>
                             </Grid>
 
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
+            <!--//添加任务栏-->
+            <StackLayout x:Name="xlayout" Grid.Row="1" Orientation="Horizontal" BackgroundColor="White">
+                <!--输入框圆形按钮-->
+                <Button BackgroundColor="Transparent" WidthRequest="45" HorizontalOptions="Start" FontSize="24" TextColor="DarkBlue" FontFamily="iconfont.ttf#" Text="&#xe80c;"/>
+                <!--输入框-->
+                <Editor x:Name="xEdit"  HorizontalOptions="FillAndExpand" Placeholder="Add Task"/><!--// 提示文本-->
+                <!--上传按钮-->
+                <Button BackgroundColor="Transparent" WidthRequest="45" HorizontalOptions="End" FontSize="20" TextColor="#708090"
+                        FontFamily="iconfont.ttf#" Text="&#xe62e;" Margin="8"/>
+
+            </StackLayout>
+
+            <Button x:Name="btnAdd"  Grid.Row="1" Text="&#xe600;" FontFamily="iconfont.ttf#" HorizontalOptions="EndAndExpand" Margin="0,0,10,10" FontSize="20"
+                    CornerRadius="30" BackgroundColor="#01EEEE"/>
+            <!--底部添加任务按钮-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

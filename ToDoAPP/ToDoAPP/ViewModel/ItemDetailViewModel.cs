@@ -13,9 +13,13 @@ namespace ToDoAPP.ViewModel
         {
             this.TaskInfos = TaskInfos;
 
-            TaskInfos.Add(new TaskInfo() { });
-            TaskInfos.Add(new TaskInfo() { });
-            TaskInfos.Add(new TaskInfo() { });
+            TaskInfos.Add(new TaskInfo() {Content = "fdgjkhdfgjhdfg" });
+            TaskInfos.Add(new TaskInfo() { Content = "fdgjkhdfgjhdfg" });
+            TaskInfos.Add(new TaskInfo() { Content = "fdgjkhdfgjhdfg" });
+            TaskInfos.Add(new TaskInfo() { Content = "fdgjkhdfgjhdfg" });
+            TaskInfos.Add(new TaskInfo() { Content = "fdgjkhdfgjhdfg" });
+            TaskInfos.Add(new TaskInfo() { Content = "fdgjkhdfgjhdfg" });
+            TaskInfos.Add(new TaskInfo() { Content = "fdgjkhdfgjhdfg" });
         }
         private ObservableCollection<TaskInfo> taskInfos = new ObservableCollection<TaskInfo>();
 
