@@ -26,9 +26,28 @@ namespace ToDoApp.Module
         }
     }
 
-    public class TaskInfo
-    {
+    public class TaskInfo:ViewModelBase
+    {   
+        
+        private bool isDeleted;
+        private bool isFavorite;
+
         public string Content { get; set; }
+
+        // 收藏
+        public bool IsFavorite
+        {
+            get { return isFavorite; }
+            set { isFavorite = value; RaisePropertyChanged(); }
+        }
+
+        
+        // 删除
+        public bool IsDeleted
+        {
+            get { return isDeleted; }
+            set { isDeleted = value; RaisePropertyChanged(); }
+        }
 
     }
 }

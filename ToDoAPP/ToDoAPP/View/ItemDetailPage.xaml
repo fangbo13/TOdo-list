@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vc="clr-namespace:ToDoApp.Converter"
              x:Class="ToDoAPP.View.ItemDetailPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Sort by" Order="Secondary" Priority="0"/>
@@ -10,8 +11,12 @@
         <ToolbarItem Text="Send a copy" Order="Secondary" Priority="0"/>
     </ContentPage.ToolbarItems>
 
+    <ContentPage.Resources>
+        <vc:IiconConverter x:Key="icc"/>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <Grid>
+        <Grid x:Name="grid">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="50"/>
@@ -19,7 +24,7 @@
 
             <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
             <ListView  Grid.RowSpan="2" RowHeight="40" SeparatorVisibility="None" 
-                       HasUnevenRows="True" ItemsSource="{Binding TaskInfos}" >
+                       HasUnevenRows="True" ItemsSource="{Binding TaskInfos}" ItemSelected="ListView_ItemSelected" >
                 <ListView.ItemTemplate>
                     <!--模板部分-->
                     <DataTemplate>
@@ -31,14 +36,15 @@
                                     <ColumnDefinition Width="50"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Button  Text="&#xe80c;" FontSize="22" FontFamily="iconfont.ttf#"/>
+                                <Button  Text="{Binding IsDeleted,Converter={StaticResource icc},ConverterParameter='Left'}" BackgroundColor="Transparent" FontSize="22" FontFamily="iconfont.ttf#"
+                                         Command="{Binding Source={x:Reference grid},Path=BindingContext.ExcludeCommand}" CommandParameter="{Binding}"/>
 
                                 <StackLayout Grid.Column="1">
                                     <Label Text="{Binding Content}" TextColor="Black"/>
                                     <Label Text="Tasks"/>
                                 </StackLayout>
-
-                                <Button Grid.Column="2" Text="&#xe625;" FontSize="22"  FontFamily="iconfont.ttf#"/>
+                                <Button Grid.Column="2" Text="{Binding IsFavorite ,Converter={StaticResource icc},ConverterParameter='Right'}" BackgroundColor="Transparent"  FontSize="22"  FontFamily="iconfont.ttf#"
+                                         Command="{Binding Source={x:Reference grid},Path=BindingContext.KeppCommand}" CommandParameter="{Binding}"/>
                             </Grid>
 
                         </ViewCell>

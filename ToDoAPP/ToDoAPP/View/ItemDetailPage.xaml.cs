@@ -25,11 +25,20 @@ namespace ToDoAPP.View
             xlayout.IsVisible = false;
             btnAdd.IsVisible = true;
         }
+
         private void BtnAdd_Clicked(object sender,EventArgs e)
         {
             btnAdd.IsVisible = false;
             xlayout.IsVisible = true;
             xEdit.Focus();
+        }
+
+        //隐藏点击任务背景色
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+          
+                ListView lv = sender as ListView;
+                lv.SelectedItem = null;
         }
     }
 }
