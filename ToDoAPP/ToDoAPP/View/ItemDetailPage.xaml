@@ -29,7 +29,18 @@
                     <!--模板部分-->
                     <DataTemplate>
                         <ViewCell>
-                            <Grid VerticalOptions="Center" BackgroundColor="White" Margin="8,4,8,0">
+                            <SwipeView Margin="8,4,8,0">
+                                <SwipeView.LeftItems><!--左边滑动-->
+                                    <SwipeItems>
+                                        <SwipeItem Text="Left" BackgroundColor="Blue"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <SwipeView.RightItems><!--右边滑动-->
+                                    <SwipeItems>
+                                        <SwipeItem Text="Right" BackgroundColor="Red"/>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <Grid VerticalOptions="Center" BackgroundColor="White" Margin="8,4,8,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition />
@@ -46,6 +57,9 @@
                                 <Button Grid.Column="2" Text="{Binding IsFavorite ,Converter={StaticResource icc},ConverterParameter='Right'}" BackgroundColor="Transparent"  FontSize="22"  FontFamily="iconfont.ttf#"
                                          Command="{Binding Source={x:Reference grid},Path=BindingContext.KeppCommand}" CommandParameter="{Binding}"/>
                             </Grid>
+                            </SwipeView>
+                            
+                           
 
                         </ViewCell>
                     </DataTemplate>
