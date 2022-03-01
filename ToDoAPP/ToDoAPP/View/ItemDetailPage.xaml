@@ -2,43 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoAPP.View.ItemDetailPage">
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Sort by" Order="Secondary" Priority="0"/>
         <ToolbarItem Text="Adding shortcuts to the home screen" Order="Secondary" Priority="0"/>
-        <ToolbarItem Text="Change theme" Order="Secondary" Priority="0"/>
-        <ToolbarItem Text="Hide completed tasks" Order="Secondary" Priority="0"/>
-        <ToolbarItem Text="Send a copy" Order="Secondary" Priority="0"/>
     </ContentPage.ToolbarItems>
 
-    <ContentPage.Content>
+
+    <ContentPage.Content>                    
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
-            <ListView  RowHeight="40" SeparatorVisibility="None" 
-                       HasUnevenRows="True" ItemsSource="{Binding TaskInfos}" >
                 <ListView.ItemTemplate>
                     <!--模板部分-->
                     <DataTemplate>
                         <ViewCell>
-                            <Grid VerticalOptions="Center" BackgroundColor="White">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="50"/>
-                                </Grid.ColumnDefinitions>
+                                    
 
-                                <Button  Text="&#xe80c;" FontFamily="iconfont.ttf#"/>
-                                
                                 <StackLayout Grid.Column="1">
-                                    <Label Text="{Binding Content}"/>
-                                    <Label Text="Tasks"/>
                                 </StackLayout>
 
+
                                 <Button Grid.Column="2" Text="&#xe625;" FontFamily="iconfont.ttf#"/>
+
                             </Grid>
 
                         </ViewCell>
