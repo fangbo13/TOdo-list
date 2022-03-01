@@ -20,13 +20,33 @@ namespace ToDoAPP
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext =new MainViewModel();/*绑定*/
+
+            NavigationPage.SetHasNavigationBar(this, false);/*头部隐藏蓝色区域*/
+            this.BindingContext = new MainViewModel();/*绑定到MainBViewmodel*/
         }
 
-        //private void ListView_ItemSelected(object sender,SelectedPositionChangedEventArgs e)
-        //{
-        //    ListView lv = sender as ListView;
-        //    lv.SelectedItem = null;/*背景颜色消失*/
-        //}
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ListView lv = sender as ListView;
+
+            var m = lv.SelectedItem as MenuModel;
+
+            if (m == null) return;
+
+            Navigation.PushAsync(new ItemDetailPage()
+
+            {
+                Title = m.Title,
+                BindingContext = new ItemDetailViewModel(m.TaskInfos)
+            });
+
+            lv.SelectedItem = null;/*背景颜色消失*/
+        }
+
+        private void ListViewSub_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ListView lv = sender as ListView;
+            lv.SelectedItem = null;/*背景颜色消失*/
+        }
     }
 }
