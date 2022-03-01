@@ -11,7 +11,11 @@ namespace ToDoAPP.ViewModel
     {
         public ItemDetailViewModel(ObservableCollection<TaskInfo> TaskInfos)
         {
+            this.TaskInfos = TaskInfos;
 
+            TaskInfos.Add(new TaskInfo() { });
+            TaskInfos.Add(new TaskInfo() { });
+            TaskInfos.Add(new TaskInfo() { });
         }
         private ObservableCollection<TaskInfo> taskInfos = new ObservableCollection<TaskInfo>();
 

@@ -33,10 +33,13 @@ namespace ToDoAPP
 
             if (m == null) return;
 
+            (App.Current.MainPage as NavigationPage).BarBackgroundColor = Color.FromHex(m.BackColor);// 将子窗口标题头部的颜色和图标一致
+
             Navigation.PushAsync(new ItemDetailPage()
 
             {
                 Title = m.Title,
+                BackgroundColor = Color.FromHex(m.BackColor),/*设置背景颜色为图标颜色一致*/
                 BindingContext = new ItemDetailViewModel(m.TaskInfos)
             });
 

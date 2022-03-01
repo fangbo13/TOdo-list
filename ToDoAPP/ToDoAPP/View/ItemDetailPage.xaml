@@ -24,7 +24,7 @@
                     <!--模板部分-->
                     <DataTemplate>
                         <ViewCell>
-                            <Grid VerticalOptions="Center" BackgroundColor="White">
+                            <Grid VerticalOptions="Center" BackgroundColor="White" Margin="8,4,8,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition />
