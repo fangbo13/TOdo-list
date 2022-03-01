@@ -13,6 +13,7 @@
 
     <ContentPage.Resources>
         <vc:IiconConverter x:Key="icc"/>
+        <vc:IDecorStatusConverter x:Key="isc"/>
     </ContentPage.Resources>
 
     <ContentPage.Content>
@@ -51,7 +52,8 @@
                                          Command="{Binding Source={x:Reference grid},Path=BindingContext.ExcludeCommand}" CommandParameter="{Binding}"/>
 
                                 <StackLayout Grid.Column="1">
-                                    <Label Text="{Binding Content}" TextColor="Black"/>
+                                    <Label Text="{Binding Content}" TextColor="Black"
+                                           TextDecorations="{Binding IsDeleted,Converter={StaticResource isc}}"/>
                                     <Label Text="Tasks"/>
                                 </StackLayout>
                                 <Button Grid.Column="2" Text="{Binding IsFavorite ,Converter={StaticResource icc},ConverterParameter='Right'}" BackgroundColor="Transparent"  FontSize="22"  FontFamily="iconfont.ttf#"
