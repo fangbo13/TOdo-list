@@ -35,17 +35,17 @@ namespace ToDoAPP
 
             Navigation.PushAsync(new ItemDetailPage()
             {
-                Title =m.Title,
-                BindingContext =new ItemDetailViewModel(m.TaskInfos)
+                Title = m.Title,
+                BindingContext = new ItemDetailViewModel(m.TaskInfos)
             });
             lv.SelectedItem = null;/*背景颜色消失*/
 
         }
 
-        //private void ListView_ItemSelected(object sender,SelectedPositionChangedEventArgs e)
-        //{
-        //    ListView lv = sender as ListView;
-        //    lv.SelectedItem = null;/*背景颜色消失*/
-        //}
+        private void ListViewSub_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ListView lv = sender as ListView;
+            lv.SelectedItem = null;/*背景颜色消失*/
+        }
     }
 }

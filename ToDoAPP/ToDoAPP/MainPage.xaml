@@ -39,7 +39,6 @@
         </StackLayout>
 
 
-            <ListView Grid.Row="1" RowHeight="40" ItemsSource="{Binding MenuModels}" SeparatorVisibility="None">
 <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
         <ListView Grid.Row="1" RowHeight="40" ItemsSource="{Binding MenuModels}" SeparatorVisibility="None"  ItemSelected="ListView_ItemSelected">
             <ListView.ItemTemplate>
