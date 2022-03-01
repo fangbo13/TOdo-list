@@ -40,6 +40,8 @@
 
 
             <ListView Grid.Row="1" RowHeight="40" ItemsSource="{Binding MenuModels}" SeparatorVisibility="None">
+<!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
+        <ListView Grid.Row="1" RowHeight="40" ItemsSource="{Binding MenuModels}" SeparatorVisibility="None"  ItemSelected="ListView_ItemSelected">
             <ListView.ItemTemplate>
                 <!--模板部分-->
                 <DataTemplate>
@@ -66,7 +68,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <!--编写活动清单-->
-        <ListView Grid.Row="2" RowHeight="40" ItemsSource="{Binding MenuSubModels}" SeparatorVisibility="None">
+        <ListView Grid.Row="2" RowHeight="40" ItemsSource="{Binding MenuSubModels}" SeparatorVisibility="None" ItemSelected="ListViewSub_ItemSelected">
             <ListView.ItemTemplate>
                 <!--模板部分-->
                 <DataTemplate>
