@@ -38,7 +38,8 @@
                                 </SwipeView.LeftItems>
                                 <SwipeView.RightItems><!--右边滑动-->
                                     <SwipeItems>
-                                        <SwipeItem Text="Right" BackgroundColor="Red"/>
+                                        <SwipeItem Text="Delete" BackgroundColor="Red"
+                                                 Command="{Binding Source={x:Reference grid},Path=BindingContext.DeleteCommand}" CommandParameter="{Binding}"   />
                                     </SwipeItems>
                                 </SwipeView.RightItems>
                                 <Grid VerticalOptions="Center" BackgroundColor="White" Margin="8,4,8,0">
@@ -70,13 +71,22 @@
             
             <!--//添加任务栏-->
             <StackLayout x:Name="xlayout" Grid.Row="1" Orientation="Horizontal" BackgroundColor="White">
+                
+                
                 <!--输入框圆形按钮-->
                 <Button BackgroundColor="Transparent" WidthRequest="45" HorizontalOptions="Start" FontSize="24" TextColor="DarkBlue" FontFamily="iconfont.ttf#" Text="&#xe80c;"/>
+                
+                
                 <!--输入框-->
-                <Editor x:Name="xEdit"  HorizontalOptions="FillAndExpand" Placeholder="Add Task"/><!--// 提示文本-->
+                <Editor x:Name="xEdit"  HorizontalOptions="FillAndExpand" Placeholder="Add Task"
+                        Text="{Binding Content}"/><!--// 提示文本-->
+                
+                
+                
                 <!--上传按钮-->
                 <Button BackgroundColor="Transparent" WidthRequest="45" HorizontalOptions="End" FontSize="20" TextColor="#708090"
-                        FontFamily="iconfont.ttf#" Text="&#xe62e;" Margin="8"/>
+                        FontFamily="iconfont.ttf#" Text="&#xe62e;" Margin="8"
+                         Command="{Binding Source={x:Reference grid},Path=BindingContext.AddCommand}"/>
 
             </StackLayout>
 
