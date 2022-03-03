@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vc="clr-namespace:ToDoApp.Converter"
              x:Class="ToDoAPP.MainPage">
-    
-    
+
+
     <ContentPage.Resources>
         <vc:IValueDiaplayConverter x:Key="idc"/>
     </ContentPage.Resources>
@@ -14,7 +14,8 @@
             <!--// 头像区和搜索、名称、邮箱-->
             <RowDefinition Height="50"/>
             <!--//五个功能“我的一天”，“重要的”，“日程”，“已分配任务”-->
-            <RowDefinition Height="205"/><!--功能和清单之间的边距-->
+            <RowDefinition Height="205"/>
+            <!--功能和清单之间的边距-->
             <RowDefinition/>
             <!--新建清单间距-->
             <RowDefinition Height="40"/>
@@ -39,41 +40,14 @@
         </StackLayout>
 
 
-<!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
-        <ListView Grid.Row="1" RowHeight="40" ItemsSource="{Binding MenuModels}" SeparatorVisibility="None"  ItemSelected="ListView_ItemSelected">
-            <ListView.ItemTemplate>
+        <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
+        <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
+                <CollectionView ItemsSource="{Binding MenuModels}" BackgroundColor="Transparent"  IsGrouped="True" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" >
+                    <CollectionView.ItemTemplate>
                 <!--模板部分-->
-                <DataTemplate>
-                    <ViewCell>
+                        <DataTemplate>
                         <!--创建主体显示部分-->
-                        <Grid VerticalOptions="Center">
-                            <!--垂直居中，创建两列-->
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding IconFont}" FontFamily="iconfont.ttf#" FontAttributes="Bold" TextColor="{Binding BackColor}" VerticalOptions="Center" FontSize="22" Margin="5"  /><!--绑定字体库，改变图标颜色，设置字体属性-->
-                                <Label Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="Center"/><!--绑定标题--> 
-                            </StackLayout>
-
-                            <Label Grid.Column="1" Text="{Binding TaskInfos.Count,Converter={StaticResource idc}}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/><!--设置计数器到第一列 绑定taskinfo,添加转换器-->
-
-                        </Grid>
-
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <!--编写活动清单-->
-        <ListView Grid.Row="2" RowHeight="40" ItemsSource="{Binding MenuSubModels}" SeparatorVisibility="None" ItemSelected="ListViewSub_ItemSelected">
-            <ListView.ItemTemplate>
-                <!--模板部分-->
-                <DataTemplate>
-                    <ViewCell>
-                        <!--创建主体显示部分-->
-                        <Grid VerticalOptions="Center">
+                        <Grid Margin="5,0,0,0" VerticalOptions="Center"  >
                             <!--垂直居中，创建两列-->
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*"/>
@@ -81,28 +55,31 @@
                             </Grid.ColumnDefinitions>
 
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="&#xe63b;" FontFamily="iconfont.ttf#" FontAttributes="Bold"  VerticalOptions="Center" FontSize="22" Margin="5"  />
-                                <!--绑定列表代码，改变图标颜色，设置字体属性-->
+                                <Label Text="{Binding IconFont}" FontFamily="iconfont.ttf#" FontAttributes="Bold" TextColor="{Binding BackColor}" VerticalOptions="Center" FontSize="22" Margin="5"  />
+                                <!--绑定字体库，改变图标颜色，设置字体属性-->
                                 <Label Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="Center"/>
                                 <!--绑定标题-->
                             </StackLayout>
 
-                            <Label Grid.Column="1" Text="{Binding TaskInfos.Count,Converter={StaticResource idc}}" HorizontalOptions="EndAndExpand"  Margin="0,0,15,0" />
-                            <!--设置计数器到第一列 绑定taskinfo-->
+                            <Label Grid.Column="1" VerticalOptions="Center" Text="{Binding TaskInfos.Count,Converter={StaticResource idc}}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/>
+                            <!--设置计数器到第一列 绑定taskinfo,添加转换器-->
 
-                        </Grid>
-
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <Grid Grid.Row="3"><!--放在第三行-->
+                         </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+        </StackLayout>
+        
+        
+        <!--编写活动清单-->
+        <Grid Grid.Row="2">
+            <!--放在第三行-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="60"/><!--添加宽度-->
+                <ColumnDefinition Width="60"/>
+                <!--添加宽度-->
             </Grid.ColumnDefinitions>
-            
+
             <!--添加列表按钮设置字体库和颜色-->
             <Button Text="&#xe600;Creat New LIST                                    
                 " TextColor="#FF6347" FontFamily="iconfont.ttf#" BackgroundColor="Transparent" />

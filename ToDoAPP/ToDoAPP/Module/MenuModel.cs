@@ -6,7 +6,14 @@ using System.Text;
 
 namespace ToDoApp.Module
 {
-    
+    public class MenuGroup : List<MenuModel>
+    {
+        public MenuGroup(string name, List<MenuModel> models) : base(models)
+        {
+            this.name = name;
+        }
+        public string name { get; private set; }
+    }
     //单项
     public class MenuModel : ViewModelBase
     {
@@ -50,4 +57,8 @@ namespace ToDoApp.Module
         }
 
     }
+
+
+
+ 
 }

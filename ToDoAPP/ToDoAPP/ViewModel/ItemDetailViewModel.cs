@@ -14,12 +14,6 @@ namespace ToDoAPP.ViewModel
         {
             this.TaskInfos = TaskInfos;
 
-
-            TaskInfos.Add(new TaskInfo() {Content = "fdgjkhdfgjhdfg" });
-            TaskInfos.Add(new TaskInfo() { Content = "fdgjkhdfgjhdfg" });
-
-
-
             ExcludeCommand = new RelayCommand<TaskInfo>(arg =>
             {
                 if (arg.IsDeleted)

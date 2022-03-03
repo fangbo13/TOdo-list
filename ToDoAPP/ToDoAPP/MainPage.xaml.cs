@@ -25,14 +25,11 @@ namespace ToDoAPP
             this.BindingContext = new MainViewModel();/*绑定到MainBViewmodel*/
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListView lv = sender as ListView;
-
+            CollectionView lv = sender as CollectionView;
             var m = lv.SelectedItem as MenuModel;
-
             if (m == null) return;
-
             (App.Current.MainPage as NavigationPage).BarBackgroundColor = Color.FromHex(m.BackColor);// 将子窗口标题头部的颜色和图标一致
 
             Navigation.PushAsync(new ItemDetailPage()
@@ -43,12 +40,6 @@ namespace ToDoAPP
                 BindingContext = new ItemDetailViewModel(m.TaskInfos)
             });
 
-            lv.SelectedItem = null;/*背景颜色消失*/
-        }
-
-        private void ListViewSub_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            ListView lv = sender as ListView;
             lv.SelectedItem = null;/*背景颜色消失*/
         }
     }
