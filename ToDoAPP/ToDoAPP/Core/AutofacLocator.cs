@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ToDoApp.Interfaces;
+using ToDoAPP.Service;
 
 namespace ToDoApp.Core
 {
@@ -14,16 +16,13 @@ namespace ToDoApp.Core
             return container.Resolve<TInterface>();
         }
 
-        /// <summary>
         /// 注册容器映射关系
-        /// </summary>
         public void Register()
         {
             var Container = new ContainerBuilder();
 
             //注入ToDo数据层服务映射
-            //Container.RegisterType<ToDoService>().As<IToDoService>();
-
+            Container.RegisterType<ToDoService>().As<IToDoService>();
             container = Container.Build();
         }
     }

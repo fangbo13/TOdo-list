@@ -3,15 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using ToDoApp.Core;
+using ToDoApp.Interfaces;
 using ToDoApp.Module;
 
 namespace ToDoApp.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
+
+        private readonly IToDoService toDoServive;
         public MainViewModel()
         {
-
+            toDoServive = ServiceProvider.Instance.Get<IToDoService>();
             Checklists = new ObservableCollection<Checklist>();
             Checklists.Add(new Checklist() { IconFont = "\xe635", Title = "My day", BackColor = "#218868", });
             Checklists.Add(new Checklist() { IconFont = "\xe6b6", Title = "Important", BackColor = "#EE3B3B", });
