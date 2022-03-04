@@ -42,12 +42,12 @@
 
         <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
         <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
-                <CollectionView ItemsSource="{Binding MenuModels}" BackgroundColor="Transparent"  IsGrouped="True" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" >
+            <CollectionView ItemsSource="{Binding Checklists}" BackgroundColor="Transparent"   SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" >
                     <CollectionView.ItemTemplate>
                 <!--模板部分-->
                         <DataTemplate>
                         <!--创建主体显示部分-->
-                        <Grid Margin="5,0,0,0" VerticalOptions="Center"  >
+                        <Grid Margin="5,0,0,0" VerticalOptions="Center"  HeightRequest="40" >
                             <!--垂直居中，创建两列-->
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*"/>
@@ -61,7 +61,7 @@
                                 <!--绑定标题-->
                             </StackLayout>
 
-                            <Label Grid.Column="1" VerticalOptions="Center" Text="{Binding TaskInfos.Count,Converter={StaticResource idc}}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/>
+                            <Label Grid.Column="1" VerticalOptions="Center" Text="{Binding Count,Converter={StaticResource idc}}" HorizontalOptions="EndAndExpand" Margin="0,0,15,0"/>
                             <!--设置计数器到第一列 绑定taskinfo,添加转换器-->
 
                          </Grid>
@@ -72,7 +72,7 @@
         
         
         <!--编写活动清单-->
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <!--放在第三行-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

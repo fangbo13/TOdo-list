@@ -11,37 +11,26 @@ namespace ToDoApp.ViewModel
     {
         public MainViewModel()
         {
-            //功能模块
-            MenuModels = new ObservableCollection<MenuGroup>();
 
-            MenuModels.Add(new MenuGroup("", new List<MenuModel>()
-            {
-                 new MenuModel() { IconFont = "\xe635", Title = "My day", BackColor = "#218868", },
-                 new MenuModel() { IconFont = "\xe6b6", Title = "Important", BackColor = "#EE3B3B", },
-                 new MenuModel() { IconFont = "\xe6e1", Title = "Planned", BackColor = "#218868", },
-                 new MenuModel() { IconFont = "\xe614", Title = "Assigned Task", BackColor = "#EE3B3B", },
-                 new MenuModel() { IconFont = "\xe755", Title = "Task", BackColor = "#218868", }
+            Checklists = new ObservableCollection<Checklist>();
+            Checklists.Add(new Checklist() { IconFont = "\xe635", Title = "My day", BackColor = "#218868", });
+            Checklists.Add(new Checklist() { IconFont = "\xe6b6", Title = "Important", BackColor = "#EE3B3B", });
+            Checklists.Add(new Checklist() { IconFont = "\xe6e1", Title = "Planned", BackColor = "#218868", });
+            Checklists.Add(new Checklist() { IconFont = "\xe614", Title = "Assigned Task", BackColor = "#EE3B3B", });
+            Checklists.Add(new Checklist() { IconFont = "\xe755", Title = "Task", BackColor = "#218868", });
+            Checklists.Add(new Checklist() { IconFont = "\xe63b", Title = "Shopping List", BackColor = "#00BFFF", });
+            Checklists.Add(new Checklist() { IconFont = "\xe63b", Title = "Grocery list", BackColor = "#00BFFF", });
+            Checklists.Add(new Checklist() { IconFont = "\xe63b", Title = "To-Do List", BackColor = "#00BFFF", });
 
-
-        }));
-            //清单模块
-            MenuModels.Add(new MenuGroup("", new List<MenuModel>()
-            {
-                 new MenuModel() { IconFont = "\xe63b", Title = "LIST", BackColor = "#00BFFF", },
-                 new MenuModel() { IconFont = "\xe63b", Title = "LIST2", BackColor = "#00BFFF", },
-
-            }));
 
         }
-        private ObservableCollection<MenuGroup> menuModels;
 
+        private ObservableCollection<Checklist> checklists;
 
-        public ObservableCollection<MenuGroup> MenuModels
+        public ObservableCollection<Checklist> Checklists
         {
-            get { return menuModels; }
-            set { menuModels = value; RaisePropertyChanged(); }
-
+            get { return checklists; }
+            set { checklists = value; RaisePropertyChanged(); }
         }
-
     }
 }
