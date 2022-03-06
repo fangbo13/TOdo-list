@@ -14,9 +14,9 @@ namespace ToDoApp.Interfaces
         // 获取清单明细的数据列表
         Task<List<ChecklistDetail>> GetToDoListDetailAsync(string id);
 
-        // 根据内容搜索结果
-        // </summary>
-        Task<List<ChecklistDetail>> GetToDoListDetailByTextAsync(string text);
+        //// 根据内容搜索结果
+        //// </summary>
+        //Task<List<ChecklistDetail>> GetToDoListDetailByTextAsync(string text);
 
         // 首页添加新的清单
         Task<bool> AddToDoGroupAsync(Checklist checklist);
