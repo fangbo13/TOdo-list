@@ -7,13 +7,13 @@ namespace ToDoApp.Module
 {
     public partial class ChecklistDetail
     {
-        // 主键
+       // Primary key
         public string Id { get; set; }
 
-        // 关联的外键ID
+        // Associated foreign key ID
         public string ChecklistId { get; set; }
 
-        // 明细内容
+        // Details content
         public string Content { get; set; }
 
     }
@@ -23,14 +23,14 @@ namespace ToDoApp.Module
         private bool isDeleted;
         private bool isFavorite;
 
-        // 收藏
+        // Favorite
         public bool IsFavorite
         {
             get { return isFavorite; }
             set { isFavorite = value; RaisePropertyChanged(); }
         }
 
-        // 删除
+        // Delete
         public bool IsDeleted
         {
             get { return isDeleted; }

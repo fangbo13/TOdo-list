@@ -6,22 +6,22 @@ using Xamarin.Forms;
 
 namespace ToDoApp.Converter
 {
-    public class IValueDiaplayConverter : IValueConverter/*添加转换器*/
+    public class IValueDiaplayConverter : IValueConverter/*Add converter*/
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value != null && int.TryParse(value.ToString(), out int result))/*如果不等于null就进行处理*/
+            if (value != null && int.TryParse(value.ToString(), out int result))/*Process if not equal to null*/
             {
-                if (result == 0)/*等于0返回空*/
+                if (result == 0)/*Equal to 0 returns null*/
                     return "";
-                return result;/*大于0返回result*/
+                return result;/*Greater than 0 returns result*/
             }
-            return "";/*不符合返回空*/
+            return "";/*Does not match return null*/
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return "";/*因为用不到所以直接返回空值*/
+            return "";/*Return empty value because it is not used*/
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿
+using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace ToDoApp.Module
 {
-    // 自定义的接受结果
+     // Customised acceptance of results
     public class SingleChecklist : ViewModelBase
     {
         public Checklist Checklist { get; set; }

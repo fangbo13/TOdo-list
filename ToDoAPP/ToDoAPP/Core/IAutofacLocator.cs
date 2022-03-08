@@ -7,7 +7,7 @@ namespace ToDoApp.Core
     public interface IAutofacLocator
     {
         void Register();
-
         TInterface Get<TInterface>();
+
     }
 }

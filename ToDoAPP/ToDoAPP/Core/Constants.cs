@@ -9,11 +9,11 @@ namespace ToDoApp.Core
 {
     public class Constants
     {
-        // 本地数据库脚本路径
+        // Local database script path
         public static string DatabasePath
         {
             get
-            {
+            {          //Return to database
                 return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "ToDo.db");
             }
         }
@@ -27,14 +27,14 @@ namespace ToDoApp.Core
                 {
                     await context.Checklists.AddRangeAsync(new Checklist[]
                     {
-                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe635", Title = "My day", BackColor = "#218868",   },
-                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe6b6", Title = "Important", BackColor = "#EE3B3B",  },
-                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe6e1", Title = "Planned", BackColor = "#218868", },
-                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe614", Title = "Assigned Task", BackColor = "#EE3B3B", },
-                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe755", Title = "Task", BackColor = "#218868", },
-                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe63b", Title = "Shopping List", BackColor = "#00BFFF",},
-                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe63b", Title = "Grocery list", BackColor = "#00BFFF", },
-                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe63b", Title = "待办事项", BackColor = "#009ACD", },
+                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe635", Title = "My Day", BackColor = "#218868", },
+                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe6b6", Title = "Important", BackColor = "#EE3B3B", },
+                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe6e1", Title = "Planned ", BackColor = "#218868", },
+                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe614", Title = "Assigned to me", BackColor = "#EE3B3B", },
+                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe755", Title = "Tasks", BackColor = "#218868", },
+                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe63b", Title = "Shopping List", BackColor = "#009ACD", },
+                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe63b", Title = "Grocery list", BackColor = "#009ACD", },
+                   new Checklist() { Id=Guid.NewGuid().ToString(), IconFont = "\xe63b", Title = "To-Do List", BackColor = "#009ACD", },
                 });
                 }
                 await context.SaveChangesAsync();

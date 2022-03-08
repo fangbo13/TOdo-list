@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoApp.Core.Helper;
 using ToDoApp.Interfaces;
 using ToDoApp.Module;
+using System.Linq;
+using ToDoApp.Core.Helper;
 
-namespace ToDoAPP.Service
+namespace ToDoApp.Service
 {
     public class ToDoService : IToDoService
     {
+        //Additional details
         public async Task<bool> AddToDoDetailAsync(string id, ChecklistDetail detail)
         {
             try
@@ -79,7 +80,6 @@ namespace ToDoAPP.Service
             }
         }
 
-
         public async Task<List<Checklist>> GetToDoListAsync()
         {
             try
@@ -97,7 +97,6 @@ namespace ToDoAPP.Service
             }
         }
 
-
         public async Task<SingleChecklist> GetToDoListDetailAsync(string id)
         {
             try
@@ -107,7 +106,8 @@ namespace ToDoAPP.Service
                 return new SingleChecklist()
                 {
                     Checklist = ck,
-                    ChecklistDetails = cks == null ? new System.Collections.ObjectModel.ObservableCollection<ChecklistDetail>() :
+                    ChecklistDetails = cks == null ?
+                    new System.Collections.ObjectModel.ObservableCollection<ChecklistDetail>() :
                     cks.ToObservableCollection()
                 };
             }
@@ -117,6 +117,17 @@ namespace ToDoAPP.Service
             }
         }
 
+        public async Task<List<ChecklistDetail>> GetToDoListDetailByTextAsync(string text)
+        {
+            try
+            {
+                return App.Instance.ChecklistDetails.Where(t => t.Content.Contains(text)).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public async Task<bool> UpdateDeleteStatus(string id, bool status)
         {
@@ -155,6 +166,7 @@ namespace ToDoAPP.Service
                 return false;
             }
         }
+
         public async Task<bool> UpdateToDoGroupNameAsync(string id, string name)
         {
             try

@@ -14,7 +14,7 @@ namespace ToDoApp.Module
         }
         public string name { get; private set; }
     }
-    //单项
+    //Individual
     public class MenuModel : ViewModelBase
     {
         public string IconFont { get; set; }
@@ -33,23 +33,23 @@ namespace ToDoApp.Module
         }
     }
 
-    public class TaskInfo:ViewModelBase
-    {   
-        
+    public class TaskInfo : ViewModelBase
+    {
+
         private bool isDeleted;
         private bool isFavorite;
 
         public string Content { get; set; }
 
-        // 收藏
+        // Favorite
         public bool IsFavorite
         {
             get { return isFavorite; }
             set { isFavorite = value; RaisePropertyChanged(); }
         }
 
-        
-        // 删除
+
+        // Delete
         public bool IsDeleted
         {
             get { return isDeleted; }
@@ -60,5 +60,5 @@ namespace ToDoApp.Module
 
 
 
- 
+
 }

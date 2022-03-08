@@ -7,15 +7,19 @@ namespace ToDoApp.Core.Helper
 {
     public static class IListHelper
     {
-        // 全局的List<T> 转换  ObservableCollection<T> 的扩展方法
+
+        // Global extension method for converting List<T> to ObservableCollection<T>
+        // Static conversion methods
         public static ObservableCollection<T> ToObservableCollection<T>(this IEnumerable<T> from)
         {
             ObservableCollection<T> to = new ObservableCollection<T>();
-            foreach (var f in from)
+            //Extraction of conversion methods into static methods of static classes
+            foreach (var i in from)
             {
-                to.Add(f);
+                to.Add(i);
             }
             return to;
         }
+        //method essentially does the conversion by iterating over the elements of the source collection fromList and adding them to the target collection toList
     }
 }

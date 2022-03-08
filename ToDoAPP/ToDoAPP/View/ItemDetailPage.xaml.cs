@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoAPP.ViewModel;
+using ToDoApp.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace ToDoAPP.View
+namespace ToDoApp.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemDetailPage : ContentPage
@@ -15,14 +15,20 @@ namespace ToDoAPP.View
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
-            xlayout.IsVisible = false;//启动时默认隐藏
+            xlayout.IsVisible = false;
             btnAdd.Clicked += BtnAdd_Clicked;
             xEdit.Unfocused += XEdit_Unfocused;
+
+            if (viewModel.SingleChecklist.Checklist.BackColor != "#009ACD")
+            {
+                this.ToolbarItems.Clear();
+            }
+
             this.BindingContext = viewModel;
         }
+
         private void XEdit_Unfocused(object sender, FocusEventArgs e)
         {
-            //当输入框失去焦点后，把layout隐藏，然后再显示按钮
             xlayout.IsVisible = false;
             btnAdd.IsVisible = true;
         }
@@ -31,16 +37,38 @@ namespace ToDoAPP.View
         {
             btnAdd.IsVisible = false;
             xlayout.IsVisible = true;
-            await Task.Delay(300);/*自动弹出键盘*/
+            await Task.Delay(500);
             xEdit.Focus();
         }
 
-        //隐藏点击任务背景色
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-          
-                ListView lv = sender as ListView;
-                lv.SelectedItem = null;
+            ListView lv = sender as ListView;
+            lv.SelectedItem = null;
+        }
+
+        private async void btnUpdateClick(object sender, EventArgs e)
+        {
+            var result = await DisplayPromptAsync("", "Please enter a new list title?");
+            if (!string.IsNullOrWhiteSpace(result))
+            {
+                var vm = this.BindingContext as ItemDetailViewModel;
+                bool r = await vm.UpdateName(result);
+                if (r)
+                    await Navigation.PopAsync();
+            }
+        }
+
+        private async void btnDeleteClick(object sender, EventArgs e)
+        {
+            var result = await DisplayAlert("Inquiry?", "Sure to delete this list?", "OK", "Cancel");
+            if (result)
+            {
+                var vm = this.BindingContext as ItemDetailViewModel;
+                bool r = await vm.DeleteCheckList();
+                if (r)
+                    await Navigation.PopAsync();
+            }
         }
     }
 }

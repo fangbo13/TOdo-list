@@ -7,16 +7,18 @@ namespace ToDoApp.Module
     public class Checklist
     {
         public string Id { get; set; }
-        // 标题
+
+        // Title
         public string Title { get; set; }
 
-        // 字体图标代码
+
+        //Font Icon Code
         public string IconFont { get; set; }
-      
-        // 颜色
+
+        // Colour
         public string BackColor { get; set; }
 
-        // 明细统计的数量
+        // Number of itemised statistics
         public int Count { get; set; }
     }
 }

@@ -129,7 +129,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\ToDoAPP\ToDoAPP.csproj">
-      <Project>{92F2C933-D179-478C-BE62-BE1B6C3CA919}</Project>
+      <Project>{613704B8-14E5-4FB7-98E5-F36A46C2873E}</Project>
       <Name>ToDoAPP</Name>
     </ProjectReference>
   </ItemGroup>

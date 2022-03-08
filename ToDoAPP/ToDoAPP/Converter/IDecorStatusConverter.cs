@@ -10,9 +10,9 @@ namespace ToDoApp.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value != null && bool.TryParse(value.ToString(), out bool result))/*判断结果不等于null并且是布尔类型 返回下滑线结果*/
+            if (value != null && bool.TryParse(value.ToString(), out bool result))/* determine that the result is not equal to null and is a boolean type Return the result of the sliding line */
             {
-                if (result) return TextDecorations.Strikethrough;/*返回划线效果*/
+                if (result) return TextDecorations.Strikethrough;/* return to underlining effect*/
             }
             return TextDecorations.None;
         }

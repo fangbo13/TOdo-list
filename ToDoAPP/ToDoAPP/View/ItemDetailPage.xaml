@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vc="clr-namespace:ToDoApp.Converter"
-             x:Class="ToDoAPP.View.ItemDetailPage">
+             x:Class="ToDoApp.View.ItemDetailPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Sort by" Order="Secondary" Priority="0"/>
-        <ToolbarItem Text="Adding shortcuts to the home screen" Order="Secondary" Priority="0"/>
-        <ToolbarItem Text="Change theme" Order="Secondary" Priority="0"/>
-        <ToolbarItem Text="Hide completed tasks" Order="Secondary" Priority="0"/>
-        <ToolbarItem Text="Send a copy" Order="Secondary" Priority="0"/>
+        <!--//Toolbar-->
+        <!--Rename list-->
+        <ToolbarItem Text="Rename list" Clicked="btnUpdateClick" Order="Secondary" Priority="0"/>
+        <!--Delete list-->
+        <ToolbarItem Text="Delete list" Clicked="btnDeleteClick" Order="Secondary" Priority="0"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
@@ -17,87 +17,86 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <Grid x:Name="grid">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-
-            <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
-            <ListView  Grid.RowSpan="2" RowHeight="40" SeparatorVisibility="None" 
-                       HasUnevenRows="True" ItemsSource="{Binding SingleChecklist.ChecklistDetails}" ItemSelected="ListView_ItemSelected" >
+            <!--Set the binding menu module, the dotted line disappears, choose the trigger event background colour-->
+            <ListView Grid.RowSpan="2"  RowHeight="40" HasUnevenRows="True" 
+                      ItemSelected="ListView_ItemSelected"
+                  SeparatorVisibility="None" ItemsSource="{Binding SingleChecklist.ChecklistDetails}">
                 <ListView.ItemTemplate>
-                    <!--模板部分-->
                     <DataTemplate>
                         <ViewCell>
                             <SwipeView Margin="8,4,8,0">
-                                <SwipeView.LeftItems><!--左边滑动-->
+                                <SwipeView.LeftItems>
                                     <SwipeItems>
+                                        <!--Swipe left-->
                                         <SwipeItem Text="Left" BackgroundColor="Blue"/>
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
-                                <SwipeView.RightItems><!--右边滑动-->
+                                <SwipeView.RightItems>
+                                    <!--Swipe right-->
                                     <SwipeItems>
-                                        <SwipeItem Text="Delete" BackgroundColor="Red"
-                                                 Command="{Binding Source={x:Reference grid},Path=BindingContext.DeleteCommand}" CommandParameter="{Binding}"   />
+                                        <SwipeItem 
+                                            Command="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.DeleteCommand}"
+                                        CommandParameter="{Binding}"
+                                            Text="Remove" BackgroundColor="Red"/>
                                     </SwipeItems>
                                 </SwipeView.RightItems>
-                                <Grid VerticalOptions="Center" BackgroundColor="White" Margin="8,4,8,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="50"/>
-                                </Grid.ColumnDefinitions>
 
-                                    <!--任务勾选按钮-->
-                                    <Button  Text="{Binding IsDeleted,Converter={StaticResource icc},ConverterParameter='Left'}" BackgroundColor="Transparent" FontSize="22" FontFamily="iconfont.ttf#"
-                                         Command="{Binding Source={x:Reference grid},Path=BindingContext.ExcludeCommand}" CommandParameter="{Binding}"
-                                         TextColor="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BackgroundColor}"/> <!--勾选任务颜色和背景一致-     在当前界面当中找到ContentPage类型对象然后拿到背景颜色-->
+                                <Grid VerticalOptions="Center" BackgroundColor="White" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!--Task ticking button-->
+                                    <Button 
+                                        Text="{Binding IsDeleted,Converter={StaticResource icc},ConverterParameter='L'}" BackgroundColor="Transparent" 
+                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},   Path=BindingContext.ExcludeCommand}" CommandParameter="{Binding}"
+                                        TextColor="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}}, Path=BackgroundColor}" FontFamily="iconfont.ttf#" FontSize="22"/>
 
                                     <StackLayout Grid.Column="1">
-                                    <Label Text="{Binding Content}" TextColor="Black"
-                                           TextDecorations="{Binding IsDeleted,Converter={StaticResource isc}}"/>
-                                    <Label Text="Tasks"/>
-                                </StackLayout>
-
-                                    <!--收藏勾选按钮-->
-                                    <Button Grid.Column="2" Text="{Binding IsFavorite ,Converter={StaticResource icc},ConverterParameter='Right'}" BackgroundColor="Transparent"  FontSize="22"  FontFamily="iconfont.ttf#"
-                                         Command="{Binding Source={x:Reference grid},Path=BindingContext.KeppCommand}" CommandParameter="{Binding}"
-                                            TextColor="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BackgroundColor}"/>
-                            </Grid>
+                                        <Label Text="{Binding Content}"
+                                               TextDecorations="{Binding IsDeleted,Converter={StaticResource isc}}"
+                                               TextColor="Black"/>
+                                        <Label Text="Tasks"/>
+                                    </StackLayout>
+                                    <!--Favourites tick button-->
+                                    <Button Grid.Column="2" BackgroundColor="Transparent" 
+                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.KeepCommand}" CommandParameter="{Binding}"
+                                        TextColor="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BackgroundColor}"
+                                        Text="{Binding IsFavorite,Converter={StaticResource icc},ConverterParameter='R'}" FontFamily="iconfont.ttf#" FontSize="22" />
+                                </Grid>
                             </SwipeView>
-                            
-                           
 
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <!--//添加任务栏-->
-            <StackLayout x:Name="xlayout" Grid.Row="1" Orientation="Horizontal" BackgroundColor="White">
-                
-                
-                <!--输入框圆形按钮-->
-                <Button BackgroundColor="Transparent" WidthRequest="45" HorizontalOptions="Start" FontSize="24" TextColor="DarkBlue" FontFamily="iconfont.ttf#" Text="&#xe80c;"/>
-                
-                
-                <!--输入框-->
-                <Editor x:Name="xEdit"  HorizontalOptions="FillAndExpand" Placeholder="Add Task"
-                        Text="{Binding Content}"/><!--// 提示文本-->
-                
-                
-                
-                <!--上传按钮-->
-                <Button BackgroundColor="Transparent" WidthRequest="45" HorizontalOptions="End" FontSize="20" TextColor="#708090"
-                        FontFamily="iconfont.ttf#" Text="&#xe62e;" Margin="8"
-                         Command="{Binding Source={x:Reference grid},Path=BindingContext.AddCommand}"/>
 
+            <StackLayout x:Name="xlayout" Grid.Row="1" Orientation="Horizontal" BackgroundColor="White">
+
+                <Button BackgroundColor="Transparent" WidthRequest="45" HorizontalOptions="Start"
+                        FontSize="24" TextColor="DarkGray" FontFamily="iconfont.ttf#" Text="&#xe80c;"/>
+
+                <Editor x:Name="xEdit" 
+                        Text="{Binding Content}"
+                        HorizontalOptions="FillAndExpand" Placeholder="Add task"/>
+
+                <Button Command="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.AddCommand}"
+                        Margin="8" TextColor="White"
+                        WidthRequest="45" HorizontalOptions="End"
+                        FontSize="20"  FontFamily="iconfont.ttf#" Text="&#xe62e;"/>
             </StackLayout>
 
-            <Button x:Name="btnAdd"  Grid.Row="1" Text="&#xe600;" FontFamily="iconfont.ttf#" HorizontalOptions="EndAndExpand" Margin="0,0,10,10" FontSize="20"
+
+            <Button x:Name="btnAdd" Grid.Row="1" Text="&#xe600;" FontFamily="iconfont.ttf#" FontSize="20"
+                    HorizontalOptions="EndAndExpand" WidthRequest="40" Margin="0,0,10,10"
                     CornerRadius="30" BackgroundColor="#01EEEE"/>
-            <!--底部添加任务按钮-->
         </Grid>
+
     </ContentPage.Content>
 </ContentPage>

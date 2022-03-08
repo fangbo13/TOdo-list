@@ -8,35 +8,36 @@ namespace ToDoApp.Interfaces
 {
     public interface IToDoService
     {
-        // 获取首页数据列表
+        // Get a list of home page data
         Task<List<Checklist>> GetToDoListAsync();
 
-        // 获取清单明细的数据列表
+        // Get a list of data for the inventory details
         Task<SingleChecklist> GetToDoListDetailAsync(string id);
 
-        //// 根据内容搜索结果
-        //// </summary>
-        //Task<List<ChecklistDetail>> GetToDoListDetailByTextAsync(string text);
+        // Search results by content
+        Task<List<ChecklistDetail>> GetToDoListDetailByTextAsync(string text);
 
-        // 首页添加新的清单
+
+        // Add a new listing to the home page
         Task<bool> AddToDoGroupAsync(Checklist checklist);
 
-        // 删除首页的清单
+        // Delete the list from the front page
         Task<bool> DeleteToDoGroupByIdAsync(string id);
 
-        // 删除明细表当中的书
+        // Delete books from the list
         Task<bool> DeleteToDoInfoByIdAsync(string id);
 
-        // 更新首页清单的名称
+
+        // Update the name of the home list
         Task<bool> UpdateToDoGroupNameAsync(string id, string name);
 
-        /// 添加明细
+        // Add details
         Task<bool> AddToDoDetailAsync(string id, ChecklistDetail detail);
 
-        // 是否删除
+        // To delete or not to delete
         Task<bool> UpdateDeleteStatus(string id, bool status);
 
-        //是否收藏
+        // To collect or not to collect
         Task<bool> UpdateFavoriteStatus(string id, bool status);
 
     }

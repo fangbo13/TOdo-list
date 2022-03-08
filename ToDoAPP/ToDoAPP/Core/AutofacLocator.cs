@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using ToDoApp.Interfaces;
-using ToDoAPP.Service;
+using ToDoApp.Service;
 
 namespace ToDoApp.Core
 {
@@ -16,18 +16,19 @@ namespace ToDoApp.Core
             return container.Resolve<TInterface>();
         }
 
-        /// 注册容器映射关系
+        // Registering container mapping relationships
         public void Register()
         {
             var Container = new ContainerBuilder();
 
-            //注入ToDo数据层服务映射
+            //Injection of ToDo data layer service mapping
             Container.RegisterType<ToDoService>().As<IToDoService>();
+
             container = Container.Build();
         }
     }
 
-    //全局容器管理器
+    // Global Container Manager
     public class ServiceProvider
     {
         public static IAutofacLocator Instance { get; private set; }
