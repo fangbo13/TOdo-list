@@ -22,6 +22,7 @@
                 <RowDefinition/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
+            
             <!--Set the binding menu module, the dotted line disappears, choose the trigger event background colour-->
             <ListView Grid.RowSpan="2"  RowHeight="40" HasUnevenRows="True" 
                       ItemSelected="ListView_ItemSelected"
@@ -33,16 +34,16 @@
                                 <SwipeView.LeftItems>
                                     <SwipeItems>
                                         <!--Swipe left-->
-                                        <SwipeItem Text="Left" BackgroundColor="Blue"/>
+                                        <SwipeItem Text="🤗"  BackgroundColor="#00FFFF"/>
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
+                                
                                 <SwipeView.RightItems>
                                     <!--Swipe right-->
                                     <SwipeItems>
                                         <SwipeItem 
-                                            Command="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.DeleteCommand}"
-                                        CommandParameter="{Binding}"
-                                            Text="Remove" BackgroundColor="Red"/>
+                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.DeleteCommand}"
+                                        CommandParameter="{Binding}" Text="Delete🗑️" BackgroundColor="#1E90FF" />
                                     </SwipeItems>
                                 </SwipeView.RightItems>
 
@@ -52,6 +53,7 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition Width="50"/>
                                     </Grid.ColumnDefinitions>
+                                    
                                     <!--Task ticking button-->
                                     <Button 
                                         Text="{Binding IsDeleted,Converter={StaticResource icc},ConverterParameter='L'}" BackgroundColor="Transparent" 
@@ -59,11 +61,10 @@
                                         TextColor="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}}, Path=BackgroundColor}" FontFamily="iconfont.ttf#" FontSize="22"/>
 
                                     <StackLayout Grid.Column="1">
-                                        <Label Text="{Binding Content}"
-                                               TextDecorations="{Binding IsDeleted,Converter={StaticResource isc}}"
-                                               TextColor="Black"/>
+                                        <Label Text="{Binding Content}" TextDecorations="{Binding IsDeleted,Converter={StaticResource isc}}" TextColor="Black"/>
                                         <Label Text="Tasks"/>
                                     </StackLayout>
+                                    
                                     <!--Favourites tick button-->
                                     <Button Grid.Column="2" BackgroundColor="Transparent" 
                                         Command="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.KeepCommand}" CommandParameter="{Binding}"
