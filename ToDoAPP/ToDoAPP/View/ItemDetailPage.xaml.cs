@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ToDoAPP.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,12 +12,13 @@ namespace ToDoAPP.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemDetailPage : ContentPage
     {
-        public ItemDetailPage()
+        public ItemDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
             xlayout.IsVisible = false;//启动时默认隐藏
             btnAdd.Clicked += BtnAdd_Clicked;
             xEdit.Unfocused += XEdit_Unfocused;
+            this.BindingContext = viewModel;
         }
         private void XEdit_Unfocused(object sender, FocusEventArgs e)
         {

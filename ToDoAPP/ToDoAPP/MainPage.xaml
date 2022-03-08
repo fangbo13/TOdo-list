@@ -42,7 +42,9 @@
 
         <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
         <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand">
-            <CollectionView ItemsSource="{Binding Checklists}" BackgroundColor="Transparent"   SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" >
+            <CollectionView  x:Name="collView"     ItemsSource="{Binding Checklists}" BackgroundColor="Transparent"   SelectionMode="Single"  
+                             SelectionChangedCommand="{Binding OpenCommand}"
+                             SelectionChangedCommandParameter="{Binding Source={x:Reference collView},Path=SelectedItem}">
                     <CollectionView.ItemTemplate>
                 <!--模板部分-->
                         <DataTemplate>
@@ -55,7 +57,7 @@
                             </Grid.ColumnDefinitions>
 
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding IconFont}" FontFamily="iconfont.ttf#" FontAttributes="Bold" TextColor="{Binding BackColor}" VerticalOptions="Center" FontSize="22" Margin="5"  />
+                                <Label Text="{Binding IconFont}" FontFamily="iconfont.ttf#" FontAttributes="Bold" TextColor="{Binding BackColor}" VerticalOptions="Center" FontSize="22" Margin="5" />
                                 <!--绑定字体库，改变图标颜色，设置字体属性-->
                                 <Label Text="{Binding Title}" FontAttributes="Bold" VerticalOptions="Center"/>
                                 <!--绑定标题-->

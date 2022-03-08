@@ -12,7 +12,7 @@ namespace ToDoApp.Interfaces
         Task<List<Checklist>> GetToDoListAsync();
 
         // 获取清单明细的数据列表
-        Task<List<ChecklistDetail>> GetToDoListDetailAsync(string id);
+        Task<SingleChecklist> GetToDoListDetailAsync(string id);
 
         //// 根据内容搜索结果
         //// </summary>

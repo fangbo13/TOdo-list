@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDoApp.Core.Helper;
 using ToDoApp.Interfaces;
 using ToDoApp.Module;
 
@@ -97,11 +98,18 @@ namespace ToDoAPP.Service
         }
 
 
-        public async Task<List<ChecklistDetail>> GetToDoListDetailAsync(string id)
+        public async Task<SingleChecklist> GetToDoListDetailAsync(string id)
         {
             try
             {
-                return App.Instance.ChecklistDetails.Where(t => t.ChecklistId == id).ToList();
+                var ck = App.Instance.Checklists.FirstOrDefault(t => t.Id == id);
+                var cks = App.Instance.ChecklistDetails.Where(t => t.ChecklistId == id).ToList();
+                return new SingleChecklist()
+                {
+                    Checklist = ck,
+                    ChecklistDetails = cks == null ? new System.Collections.ObjectModel.ObservableCollection<ChecklistDetail>() :
+                    cks.ToObservableCollection()
+                };
             }
             catch (Exception ex)
             {

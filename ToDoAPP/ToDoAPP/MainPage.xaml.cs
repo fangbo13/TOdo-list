@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -23,24 +24,21 @@ namespace ToDoAPP
 
             NavigationPage.SetHasNavigationBar(this, false);/*头部隐藏蓝色区域*/
             this.BindingContext = new MainViewModel();/*绑定到MainBViewmodel*/
+            Messenger.Default.Register<SingleChecklist>(this, "OpenDetailPage", OpenDetailPage);
         }
 
-        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void OpenDetailPage(SingleChecklist obj)
         {
-            CollectionView lv = sender as CollectionView;
-            var m = lv.SelectedItem as MenuModel;
-            if (m == null) return;
-            (App.Current.MainPage as NavigationPage).BarBackgroundColor = Color.FromHex(m.BackColor);// 将子窗口标题头部的颜色和图标一致
-
-            Navigation.PushAsync(new ItemDetailPage()
-
+             (App.Current.MainPage as NavigationPage).BarBackgroundColor = Color.FromHex(obj.Checklist.BackColor);// 将子窗口标题头部的颜色和图标一致
+            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(obj))
             {
-                Title = m.Title,
-                BackgroundColor = Color.FromHex(m.BackColor),/*设置背景颜色为图标颜色一致*/
-                BindingContext = new ItemDetailViewModel(m.TaskInfos)
+                Title = obj.Checklist.Title,
+                BackgroundColor = Color.FromHex(obj.Checklist.BackColor)/*设置背景颜色为图标颜色一致*/
             });
-
-            lv.SelectedItem = null;/*背景颜色消失*/
+            await Task.Delay(100);
+            collView.SelectedItem = null;/*背景颜色消失*/
         }
+
+      
     }
 }

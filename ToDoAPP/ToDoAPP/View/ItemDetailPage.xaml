@@ -25,7 +25,7 @@
 
             <!--设置绑定菜单模块，虚线消失，选择触发事件背景颜色-->
             <ListView  Grid.RowSpan="2" RowHeight="40" SeparatorVisibility="None" 
-                       HasUnevenRows="True" ItemsSource="{Binding TaskInfos}" ItemSelected="ListView_ItemSelected" >
+                       HasUnevenRows="True" ItemsSource="{Binding SingleChecklist.ChecklistDetails}" ItemSelected="ListView_ItemSelected" >
                 <ListView.ItemTemplate>
                     <!--模板部分-->
                     <DataTemplate>
