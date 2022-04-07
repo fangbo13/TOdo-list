@@ -43,7 +43,7 @@ namespace ToDoApp.ViewModel
         public RelayCommand<ChecklistDetail> ExcludeCommand { get; private set; }
         public RelayCommand<ChecklistDetail> KeepCommand { get; private set; }
 
-        //New
+        // Add new task command
         public RelayCommand AddCommand { get; private set; }
         //Delete
         public RelayCommand<ChecklistDetail> DeleteCommand { get; private set; }
@@ -60,7 +60,7 @@ namespace ToDoApp.ViewModel
             if (r)
             {
                 SingleChecklist.ChecklistDetails.Add(new ChecklistDetail() { Content = Content });
-                Content = string.Empty;
+                Content = string.Empty;/// improve preformance 
             }
         }
 

@@ -57,7 +57,7 @@ namespace ToDoApp
                 Title = obj.Checklist.Title,
                 BackgroundColor = Color.FromHex(obj.Checklist.BackColor)/*Set the background colour to be the same as the icon colour*/
             });
-            await Task.Delay(100);
+            await Task.Delay(200);
             collView.SelectedItem = null; /*Background colour disappears*/
         }
 
