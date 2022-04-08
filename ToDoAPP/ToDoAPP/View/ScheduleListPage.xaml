@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoAPP.View.ScheduleListPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <ListView Grid.RowSpan="2"  RowHeight="40" HasUnevenRows="True" 
+                  SeparatorVisibility="None" ItemsSource="{Binding CheckDetailList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <SwipeView Margin="8,4,8,0">
+                                    <SwipeView.LeftItems>
+                                        <SwipeItems>
+                                            <!--Swipe left-->
+                                            <SwipeItem Text="🤗"  BackgroundColor="#00FFFF"/>
+                                        </SwipeItems>
+                                    </SwipeView.LeftItems>
+
+                                    <SwipeView.RightItems>
+                                        <!--Swipe right-->
+                                        <SwipeItems>
+                                            <SwipeItem 
+                                        Command="{Binding BindingContext.DeleteDetailCommand,Source={RelativeSource AncestorType={x:Type ContentPage} }}"
+                                        CommandParameter="{Binding .}" Text="Delete🗑️" BackgroundColor="#1E90FF" />
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+
+                                    <Grid VerticalOptions="Center" BackgroundColor="White" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="50"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!--Task ticking button-->
+                                        <Button 
+                                        Text="" BackgroundColor="Transparent" 
+                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},   Path=BindingContext.ExcludeCommand}" CommandParameter="{Binding}"
+                                        TextColor="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}}, Path=BackgroundColor}" FontFamily="iconfont.ttf#" FontSize="22"/>
+
+                                        <StackLayout Grid.Column="1">
+                                            <Label Text="{Binding Content}" TextColor="Black"/>
+                                            <Label Text="Tasks"/>
+                                        </StackLayout>
+
+                                        <!--Favourites tick button-->
+                                        <Button Grid.Column="2" BackgroundColor="Transparent" 
+                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.KeepCommand}" CommandParameter="{Binding}"
+                                        TextColor="{Binding Source={x:RelativeSource AncestorType={x:Type ContentPage}},Path=BackgroundColor}"
+                                        Text="" FontFamily="iconfont.ttf#" FontSize="22" />
+                                    </Grid>
+                                </SwipeView>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </Grid>
+            <StackLayout>
+                <StackLayout x:Name="xlayout" Grid.Row="1" Orientation="Horizontal" BackgroundColor="White">
+
+                    <!--<Button BackgroundColor="Transparent" WidthRequest="45" HorizontalOptions="Start"
+                        FontSize="24" TextColor="DarkGray" FontFamily="iconfont.ttf#" Text="&#xe80c;"/>-->
+
+                    <Editor x:Name="xEdit" 
+                        Text="{Binding DetailContent}"
+                        HorizontalOptions="FillAndExpand" Placeholder="Add task"/>
+
+                    <Button Command="{Binding AddDetailCommand}"
+                        Margin="8" TextColor="White"
+                        WidthRequest="45" HorizontalOptions="End"
+                        FontSize="20"  FontFamily="iconfont.ttf#" Text="&#xe62e;"/>
+                </StackLayout>
+
+                
+
+
+                <Button Grid.Row="0" Text="&#xe755;" FontFamily="iconfont.ttf#" FontSize="20" 
+                    HorizontalOptions="EndAndExpand" WidthRequest="40" HeightRequest="40" Margin="0,0,10,10"
+                    CornerRadius="30" BackgroundColor="#1cbbb4" Command="{Binding BackMainPageCommand}" />
+                <Button x:Name="btnAdd" Grid.Row="1" Text="&#xe600;" FontFamily="iconfont.ttf#" FontSize="20"
+                    HorizontalOptions="EndAndExpand" WidthRequest="40" HeightRequest="40" Margin="0,0,10,10"
+                    CornerRadius="30" BackgroundColor="#01EEEE"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

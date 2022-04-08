@@ -7,9 +7,9 @@ using ToDoAPP.Common;
 
 namespace ToDoAPP.Core.Helper
 {
-    public class HttpHelper: SingleSton<HttpHelper>
+    public class HttpHelper : SingleSton<HttpHelper>
     {
-        public string BaseUrl = "http://192.168.1.150:51609";
+        public string BaseUrl = "http://192.168.1.150:65285";
 
         public string Token = "";
 

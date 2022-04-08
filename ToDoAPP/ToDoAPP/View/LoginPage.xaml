@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoAPP.View.LoginPage">
+    <ContentPage.Content>
+        <Grid>
+            <Image   Aspect="AspectFill" Source="LoginBack.png"></Image>
+
+            <Frame HasShadow="True" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="300" WidthRequest="320" CornerRadius="10">
+
+                <StackLayout>
+                    <Grid Margin="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label TextColor="#0180ff" FontSize="26" Text="Welcome TodoApp" FontFamily="FAS" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Center" ></Label>
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="UserName"  VerticalOptions="Center" FontSize="18" ></Label>
+                        <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding User.UserName}" Margin="0" ></Entry>
+
+                        <Label Margin="8,0,0,0" Grid.Row="2" Grid.Column="0"  Text="PassWord" VerticalOptions="Center" FontSize="18" ></Label>
+                        <Entry Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  IsPassword="True" Text="{Binding User.UserPwd}"  Margin="0" ></Entry>
+
+                        <Button Command="{Binding LoginCommand}" Margin="0,16,0,0" Grid.Row="3" Grid.ColumnSpan="3" HorizontalOptions="Fill" Text="Login" BackgroundColor="#149b5f" TextColor="White" ></Button>
+                    </Grid>
+
+                </StackLayout>
+
+            </Frame>
+
+        </Grid>
+        <!--<StackLayout>
+            <Image   Aspect="AspectFill" Source="LoginBack.png"></Image>
+            <Frame CornerRadius="10" Margin="10">
+            <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Welcome TodoApp" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" FontSize="18"></Label>
+
+                    <Label Text="UserName" Grid.Row="1" Grid.Column="0" HorizontalOptions="End"></Label>
+                    <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"></Entry>
+
+                    <Label Text="PassWord" Grid.Row="2" Grid.Column="0" HorizontalOptions="End"></Label>
+                    <Entry Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" IsPassword="True" ></Entry>
+
+                    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Text="add" BackgroundColor="#10a54a" ></Button>
+                </Grid>
+            </Frame>
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>

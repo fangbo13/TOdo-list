@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoAPP.View.AddListPage">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+            <Frame CornerRadius="10" Margin="10" Padding="10" HeightRequest="300" WidthRequest="320">
+                <StackLayout>
+                    <Label Text="Please enter a title" FontSize="18"></Label>
+                    <Entry Text="{Binding AddTitleName}"></Entry>
+                </StackLayout>
+            </Frame>
+            <StackLayout Padding="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Text="Back MainPage" Grid.Row="0" Grid.Column="0"  BackgroundColor="#1cbbb4" TextColor="White" Command="{Binding BackMainPageCommand}" ></Button>
+                    <Button Text="Submit"  Grid.Row="0" Grid.Column="1" BackgroundColor="#0999e9" TextColor="White" Command="{Binding AddListSubmitCommand}"></Button>
+                </Grid>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
