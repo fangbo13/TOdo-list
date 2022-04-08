@@ -41,7 +41,7 @@ namespace TestProject1
         }
 
         [TestMethod]
-        public void AddParentListName1()
+        public void AddParentListName()
         {
             APIService api = new APIService();
             string listid = "0";

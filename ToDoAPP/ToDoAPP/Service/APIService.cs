@@ -23,6 +23,10 @@ namespace ToDoAPP.Service
 
         private const string GET_DELETEDETAIL_URL = "/api/Todo/DeleteDetail";
 
+        private const string GET_DELETELIST_URL = "/api/Todo/DeleteList";
+
+        private const string GET_MODIFYLISTNAME_URL = "/api/Todo/ModifyListName";
+
         public Result<JObject> UserLogin(string username, string pwd)
         {
             try
@@ -115,7 +119,40 @@ namespace ToDoAPP.Service
         {
             try
             {
-                var Api_result = HttpHelper.Instance.Request<object, Result<JObject>>(GET_DELETEDETAIL_URL, new { id = DetaillID}, System.Net.Http.HttpMethod.Post);
+                var Api_result = HttpHelper.Instance.Request<object, Result<JObject>>(GET_DELETEDETAIL_URL, new { id = DetaillID }, System.Net.Http.HttpMethod.Post);
+                return Api_result;
+            }
+            catch (Exception e)
+            {
+                Result<JObject> result = new Result<JObject>();
+                result.ResultMsg = e.Message;
+                result.ResultCode = "201";
+                return result;
+            }
+        }
+
+        public Result<JObject> DeleteList(string id)
+        {
+            try
+            {
+                var Api_result = HttpHelper.Instance.Request<object, Result<JObject>>(GET_DELETELIST_URL, new { id = id }, System.Net.Http.HttpMethod.Post);
+                return Api_result;
+            }
+            catch (Exception e)
+            {
+                Result<JObject> result = new Result<JObject>();
+                result.ResultMsg = e.Message;
+                result.ResultCode = "201";
+                return result;
+            }
+        }
+
+
+        public Result<JObject> ModifyListName(string id, string name)
+        {
+            try
+            {
+                var Api_result = HttpHelper.Instance.Request<object, Result<JObject>>(GET_MODIFYLISTNAME_URL, new { id = id, name = name }, System.Net.Http.HttpMethod.Post);
                 return Api_result;
             }
             catch (Exception e)

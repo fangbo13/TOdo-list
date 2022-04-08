@@ -233,9 +233,47 @@ namespace ToDoApp.ViewModel
         public async void Open(Checklist check)
         {
             UserContext.UserParameter = check.Id;
-
+            UserContext.PageTitle = check.Title;
             Application.Current.MainPage = new ScheduleListPage();
         }
+
+        public string GetTitle()
+        {
+            return UserContext.PageTitle;
+        }
+
+        public RelayCommand DeleteListCommand => new RelayCommand(DeleteList);
+
+        public async void DeleteList()
+        {
+            var result = APIservice.DeleteList(UserContext.UserParameter);
+            if (result.IsSuccess)
+            {
+                CheckDetailList.Clear();
+                Application.Current.MainPage = new MainPage();
+            }
+            else
+            {
+                Application.Current.Dispatcher.BeginInvokeOnMainThread(() =>
+               Application.Current.MainPage.DisplayAlert("Error", result.ResultMsg, "OK"));
+            }
+        }
+        public async void ModifyListName(string name)
+        {
+            var result = APIservice.ModifyListName(UserContext.UserParameter, name);
+            if (result.IsSuccess)
+            {
+                UserContext.PageTitle = name;
+                //CheckDetailList.Clear();
+                //Application.Current.MainPage = new MainPage();
+            }
+            else
+            {
+                Application.Current.Dispatcher.BeginInvokeOnMainThread(() =>
+               Application.Current.MainPage.DisplayAlert("Error", result.ResultMsg, "OK"));
+            }
+        }
+
 
 
 

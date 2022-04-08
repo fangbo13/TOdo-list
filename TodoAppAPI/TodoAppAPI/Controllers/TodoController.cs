@@ -165,7 +165,7 @@ namespace TodoAppAPI.Controllers
             Result result = new Result();
             string id = obj.id;
             string sql = "DELETE FROM schedule WHERE ID=" + id;
-            if (SQLiteHelper.ExecuteNonQuery(sql)>0)
+            if (SQLiteHelper.ExecuteNonQuery(sql) > 0)
             {
                 result.ResultCode = "200";
                 result.Success = true;
@@ -176,6 +176,55 @@ namespace TodoAppAPI.Controllers
                 result.ResultCode = "201";
                 result.Success = false;
                 result.ResultMsg = "Delete was failed!";
+            }
+            return result;
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("api/Todo/DeleteList")]
+        public Result DeleteList(dynamic obj)
+        {
+            Result result = new Result();
+            string id = obj.id;
+            string sql = "DELETE FROM listinfo WHERE ID=" + id;
+            if (SQLiteHelper.ExecuteNonQuery(sql) > 0)
+            {
+                string sql_deletechild = "DELETE FROM schedule WHERE LISTID=" + id;
+                SQLiteHelper.ExecuteNonQuery(sql_deletechild);
+                result.ResultCode = "200";
+                result.Success = true;
+                result.ResultMsg = "Delete was successful!";
+            }
+            else
+            {
+                result.ResultCode = "201";
+                result.Success = false;
+                result.ResultMsg = "Delete was failed!";
+            }
+            return result;
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("api/Todo/ModifyListName")]
+        public Result ModifyListName(dynamic obj)
+        {
+            Result result = new Result();
+            string id = obj.id;
+            string name = obj.name;
+            string sql = "UPDATE listinfo SET LISTNAME='" + name + "' WHERE ID=" + id;
+            if (SQLiteHelper.ExecuteNonQuery(sql) > 0)
+            {
+                result.ResultCode = "200";
+                result.Success = true;
+                result.ResultMsg = "Modify was successful!";
+            }
+            else
+            {
+                result.ResultCode = "201";
+                result.Success = false;
+                result.ResultMsg = "Modify was failed!";
             }
             return result;
         }

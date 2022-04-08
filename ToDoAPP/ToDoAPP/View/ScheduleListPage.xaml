@@ -6,12 +6,26 @@
         <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
                 </Grid.RowDefinitions>
-
-                <ListView Grid.RowSpan="2"  RowHeight="40" HasUnevenRows="True" 
-                  SeparatorVisibility="None" ItemsSource="{Binding CheckDetailList}">
+                <StackLayout Grid.Row="0" Padding="10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="lable_title" Text="{Binding PageTitle}" FontSize="18"  HorizontalOptions="StartAndExpand" Margin="0,0,0,20" TextColor="Black" Grid.Row="0" Grid.Column="0"></Label>
+                        <Button BackgroundColor="Transparent" Text="Delete List" TextColor="Gray"  HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="1" Padding="0" Margin="0" Clicked="Button_Clicked" ></Button>
+                    </Grid>
+                    
+                </StackLayout>
+                <ListView  Grid.Row="1" Grid.RowSpan="2"  RowHeight="40" HasUnevenRows="True"  SeparatorVisibility="None" ItemsSource="{Binding CheckDetailList}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -64,7 +78,7 @@
                 </ListView>
                 
             </Grid>
-            <StackLayout>
+            <StackLayout Grid.Row="2">
                 <StackLayout x:Name="xlayout" Grid.Row="1" Orientation="Horizontal" BackgroundColor="White">
 
                     <!--<Button BackgroundColor="Transparent" WidthRequest="45" HorizontalOptions="Start"
@@ -79,16 +93,12 @@
                         WidthRequest="45" HorizontalOptions="End"
                         FontSize="20"  FontFamily="iconfont.ttf#" Text="&#xe62e;"/>
                 </StackLayout>
-
-                
-
-
-                <Button Grid.Row="0" Text="&#xe755;" FontFamily="iconfont.ttf#" FontSize="20" 
-                    HorizontalOptions="EndAndExpand" WidthRequest="40" HeightRequest="40" Margin="0,0,10,10"
-                    CornerRadius="30" BackgroundColor="#1cbbb4" Command="{Binding BackMainPageCommand}" />
-                <Button x:Name="btnAdd" Grid.Row="1" Text="&#xe600;" FontFamily="iconfont.ttf#" FontSize="20"
-                    HorizontalOptions="EndAndExpand" WidthRequest="40" HeightRequest="40" Margin="0,0,10,10"
-                    CornerRadius="30" BackgroundColor="#01EEEE"/>
+                <Button Grid.Row="0" Text="&#xe6e1;" FontFamily="iconfont.ttf#" FontSize="20"   HorizontalOptions="EndAndExpand" WidthRequest="40" HeightRequest="40" Margin="0,0,10,10"
+                    CornerRadius="30" BackgroundColor="#fae47a" Clicked="Button_Clicked_1" TextColor="White"/>
+                <Button Grid.Row="1" Text="&#xe755;" FontFamily="iconfont.ttf#" FontSize="20"   HorizontalOptions="EndAndExpand" WidthRequest="40" HeightRequest="40" Margin="0,0,10,10"
+                    CornerRadius="30" BackgroundColor="#1cbbb4" Command="{Binding BackMainPageCommand}"  TextColor="White"/>
+                <Button x:Name="btnAdd" Grid.Row="2" Text="&#xe600;" FontFamily="iconfont.ttf#" FontSize="20" HorizontalOptions="EndAndExpand" WidthRequest="40" HeightRequest="40" Margin="0,0,10,10"
+                    CornerRadius="30" BackgroundColor="#01EEEE" TextColor="White"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

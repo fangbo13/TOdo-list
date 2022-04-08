@@ -21,5 +21,9 @@ namespace ToDoAPP.Interfaces
         Result<List<JObject>> GetSchedule(string listid);
 
         Result<JObject> DeleteDetail(string DetaillID);
+
+        Result<JObject> DeleteList(string id);
+
+        Result<JObject> ModifyListName(string id, string name);
     }
 }
