@@ -1,0 +1,60 @@
+6002 CW Transcript
+
+
+Good afternoon, this is haibofang，MY student id is：10023361.
+-sorry,
+Next I’m gonna to show my project, my app is Todo ListApp.
+
+00:22 --- APP Introduction
+ToDo APP encourages you to complete your daily tasks, reduces forgetfulness, assists you in recording the little things in your life, acts as a second brain, a tool for you to use, increases your productivity, and allows your brain to be used for thinking in a procrastination-prone environment.
+Next I will run my project，This will take a little longer。
+
+00:58----- Show Data persistence, external APIs, authentication services
+(Complexity of applications to meet brief requirements)
+In the CW2 brief, The app is required to have data persistence, at least one external API, and a very good UI interface element, and must also be developed using the MVVM framework, which must be complex
+
+01:29------ external APIs
+ (Call external API login, add listings, etc.)
+First, I did a lot of external api's, including user login, changing list names, adding lists, deleting lists, adding tasks, deleting tasks, etc.
+
+
+(A database must be created before user data can be saved. Database persistence is a property that ensures that data is stored permanently and cannot be accidentally lost or erased even during a database crash.)
+Next is data persistence, which you can see here, You can see here a link to sqlite.DB, which holds user data, information such as avatars, emails, nicknames, etc.
+
+02:28------ Authentication
+(Authentication is required to secure the account for the data.)
+I did the authentication, it's a login screen because this saves your personal information and you can't use the app without logging in. These are the three parts of it
+Next I am going to show my app
+
+02:54------- Login interface
+(Login screen where users can log in)
+Log in to the main screen, now you can see the main screen, you can see the user's avatar their name, their account information
+
+03:18------ Create new list
+（Users can create new lists to give an overview of what will happen .For example, the user's shopping plan or study plan for the day）
+You can create a new list by clicking on the Create List button, you enter the name and submit and you can see the new list at the top.
+
+03:43------ Counters
+( The counter will show how many tasks are included in the list.)
+
+03:47----- Add task
+(Users can add tasks to remind them of the day and then list them to help them organise their day)
+If you want to add a task, click on the plus icon. Then If you want to do the reading, at 2pm, then you can see that the addition was successful
+
+04:04----- Left and right swipe function
+(Users can swipe this left and right, want to do a swipe to see a quirky emoji, and swipe right to remove the added task.)
+You can swipe left or swipe again on a task, if you swipe left it will give you an expression, if you swipe right it will remove the added task.
+
+04:23----- Change the name of the list
+(Users can change the name of the list, for example if they want to change tomorrow's task to today, so they can change the name of the list)
+Then, also, you can change the name of your list, for example: this is test1 and we change it to test2.
+
+04:34----- Delete List
+(When the user does not want the list, they can delete it)
+You can then also delete the list. See it done.
+
+04:49------ Return to main page
+（Regardless of being in that list, you need to return to the home page）
+You can then click on the house button and return to the home page
+
+That's all the features
