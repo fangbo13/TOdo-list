@@ -12,17 +12,18 @@ namespace ToDoApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemDetailPage : ContentPage
     {
-        public ItemDetailPage(ItemDetailViewModel viewModel)
+        MainViewModel viewModel;
+        public ItemDetailPage()
         {
             InitializeComponent();
             xlayout.IsVisible = false;
             btnAdd.Clicked += BtnAdd_Clicked;
             xEdit.Unfocused += XEdit_Unfocused;
 
-            if (viewModel.SingleChecklist.Checklist.BackColor != "#009ACD")
-            {
-                this.ToolbarItems.Clear();
-            }
+            //if (viewModel.SingleChecklist.Checklist.BackColor != "#009ACD")
+            //{
+            //    this.ToolbarItems.Clear();
+            //}
 
             this.BindingContext = viewModel;
         }

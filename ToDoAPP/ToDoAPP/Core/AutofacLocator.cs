@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Text;
 using ToDoApp.Interfaces;
 using ToDoApp.Service;
+using ToDoAPP.Interfaces;
+using ToDoAPP.Service;
 
 namespace ToDoApp.Core
 {
@@ -23,7 +25,7 @@ namespace ToDoApp.Core
 
             //Injection of ToDo data layer service mapping
             Container.RegisterType<ToDoService>().As<IToDoService>();
-
+            Container.RegisterType<APIService>().As<APIInterface>();
             container = Container.Build();
         }
     }

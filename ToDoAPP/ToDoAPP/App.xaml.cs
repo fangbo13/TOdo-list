@@ -1,5 +1,7 @@
 ﻿using System;
 using ToDoApp.Core;
+using ToDoAPP.View;
+using ToDoAPP.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,7 +30,9 @@ namespace ToDoApp
             AutofacLocator autofac = new AutofacLocator();
             autofac.Register();
             ServiceProvider.RegisterSerivceLocator(autofac);
-            MainPage = new NavigationPage(new MainPage());
+            Application.Current.MainPage = new LoginPage();
+            //MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

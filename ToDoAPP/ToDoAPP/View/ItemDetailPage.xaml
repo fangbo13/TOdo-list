@@ -93,7 +93,9 @@
                         FontSize="20"  FontFamily="iconfont.ttf#" Text="&#xe62e;"/>
             </StackLayout>
 
-
+            <Button Grid.Row="1" Text="&#xe755;" FontFamily="iconfont.ttf#" FontSize="20"
+                    HorizontalOptions="StartAndExpand" WidthRequest="40" Margin="0,0,10,10"
+                    CornerRadius="30" BackgroundColor="#1cbbb4" Command="{Binding BackMainPageCommand}" />
             <Button x:Name="btnAdd" Grid.Row="1" Text="&#xe600;" FontFamily="iconfont.ttf#" FontSize="20"
                     HorizontalOptions="EndAndExpand" WidthRequest="40" Margin="0,0,10,10"
                     CornerRadius="30" BackgroundColor="#01EEEE"/>

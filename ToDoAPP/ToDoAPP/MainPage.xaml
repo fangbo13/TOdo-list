@@ -40,9 +40,9 @@
 
             <StackLayout VerticalOptions="EndAndExpand">
                 <!--//Vertical layout-->
-                <Label Text="Haibo_Fang" FontAttributes="Bold" FontSize="15" Margin="0" />
+                <Label Text="{Binding UserModel.UserName}" FontAttributes="Bold" FontSize="15" Margin="0" />
                 <!--Add name-->
-                <Label Text="fangh13@uni.coventry.ac.uk"  FontSize="14" Margin="0" />
+                <Label Text="{Binding UserModel.Remark}"  FontSize="14" Margin="0" />
                 <!--Add email address-->
             </StackLayout>
             <!--Create a search button-->
