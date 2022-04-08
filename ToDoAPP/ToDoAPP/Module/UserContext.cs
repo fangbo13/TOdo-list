@@ -58,5 +58,18 @@ namespace ToDoAPP.Module
             set { _UserParameter = value; }
 
         }
+
+        private static string _PageTitle;
+
+
+        public static string PageTitle
+
+        {
+
+            get { return _PageTitle; }
+
+            set { _PageTitle = value; }
+
+        }
     }
 }
