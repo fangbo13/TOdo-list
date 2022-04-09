@@ -13,3 +13,6 @@ https://livecoventryac-my.sharepoint.com/:f:/g/personal/fangh13_uni_coventry_ac_
 
 # Discord screenshoot
 ### See Discord 3.09-2022.png as a Discord collaboration
+
+# Use case diagram
+## Please see the use case diagram folder
