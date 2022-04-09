@@ -5,7 +5,7 @@ ToDo APP encourages you to complete your daily tasks, reduces forgetfulness, ass
 https://youtu.be/z1YWEnYi_RA
 
 # OneDrive Link
-https://livecoventryac-my.sharepoint.com/:f:/g/personal/fangh13_uni_coventry_ac_uk/EgTvjeqN_1VLuFg0MYpeIn4B0OVhGK6U-cEl0pD4UQWtYw?e=IFmMWC
+https://livecoventryac-my.sharepoint.com/:f:/g/personal/fangh13_uni_coventry_ac_uk/EgTvjeqN_1VLuFg0MYpeIn4B0OVhGK6U-cEl0pD4UQWtYw?e=Rj3Jrp
 
 # Transcript
 
