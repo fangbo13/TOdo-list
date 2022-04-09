@@ -8,4 +8,8 @@ https://youtu.be/z1YWEnYi_RA
 https://livecoventryac-my.sharepoint.com/:f:/g/personal/fangh13_uni_coventry_ac_uk/EgTvjeqN_1VLuFg0MYpeIn4B0OVhGK6U-cEl0pD4UQWtYw?e=IFmMWC
 
 # Transcript
+
 ## Please note!!! Transcript files are included in Github! 
+
+# Discord screenshoot
+### See Discord 3.09-2022.png as a Discord collaboration
